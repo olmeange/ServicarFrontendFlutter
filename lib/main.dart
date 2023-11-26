@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:servicarmt/src/pages/appointment.dart';
+import 'package:servicarmt/src/pages/home_views/options_views/appointment.dart';
 
 import 'package:servicarmt/src/pages/home.dart';
 import 'package:servicarmt/src/pages/login.dart';
 import 'package:servicarmt/src/pages/register.dart';
+import 'package:servicarmt/src/pages/home_views/options_views/clients.dart';
 import 'package:servicarmt/src/providers/login_provider.dart';
 import 'package:servicarmt/src/providers/register_provider.dart';
 
@@ -28,6 +29,7 @@ class MyApp extends StatelessWidget {
             'register': (context) => const Register(),
             'home': (context) => const Home(),
             'appointment': (context) => const Appointment(),
+            'clients': (context) => const Clients(),
           }),
     );
   }

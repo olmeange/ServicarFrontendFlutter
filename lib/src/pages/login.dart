@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 
 //import 'package:path/path.dart' as path;
 import 'package:provider/provider.dart';
+import 'package:servicarmt/src/models/user_model.dart';
 import 'package:servicarmt/src/providers/login_provider.dart';
+import 'package:servicarmt/src/services/login_service.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -123,21 +125,44 @@ class _LoginState extends State<Login> {
           textStyle: const TextStyle(fontSize: 18),
           minimumSize: const Size.fromHeight(55)),
       onPressed: () {
-        //loginUser;
-        //print('boton presionado');
         if (_formState.currentState!.validate()) {
           //print('Datos válidos');
           //emailController.clear();
           //passwordController.clear();
-          loginProviderSend.userText = userController.text;
-          loginProviderSend.passwordText = passwordController.text;
+          //loginProviderSend.userText = userController.text;
+          //loginProviderSend.passwordText = passwordController.text;
+
+          final LoginService loginService = LoginService();
+          loginService
+              .login(userController.text, passwordController.text)
+              .then((response) {
+            if (response.statusCode == 1000) {
+              final UserModel userModel = UserModel(
+                  user: User(
+                      firstName: response.user!.firstName!,
+                      lastName: response.user!.lastName!,
+                      id: response.user!.id!,
+                      location: response.user!.location!,
+                      password: response.user!.password!,
+                      userName: response.user!.userName!),
+                  statusCode: response.statusCode!);
+
+              loginProviderSend.userModel = userModel;
+
+              Navigator.pushNamed(context, 'home');
+            } else {
+              if (response.statusCode == 1001) {
+                //mostrar un toast u otra opcion
+                //print(response.message);
+                //print("No se loguea");
+              }
+            }
+          });
 
           /*var route = ModalRoute.of(context);
           if (route != null) {
             print(route.settings.name.toString());
           }*/
-
-          Navigator.pushNamed(context, 'home');
         }
       },
       child: const Text('Iniciar Sesion'),

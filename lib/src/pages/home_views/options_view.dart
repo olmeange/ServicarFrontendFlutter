@@ -67,6 +67,7 @@ class _OptionsViewState extends State<OptionsView> {
       case 0:
         {
           // statements;
+          Navigator.pushNamed(context, 'clients');
         }
         break;
 

@@ -10,7 +10,7 @@ class MaintenanceService {
 
     final response = await http
         .get(Uri.parse(url), headers: {"Content-Type": "application/json"});
-    print(response.body);
+    //print(response.body);
     return maintenanceModelFromJson(response.body);
   }
 }

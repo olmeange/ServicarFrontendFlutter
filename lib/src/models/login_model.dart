@@ -1,27 +1,28 @@
 import 'dart:convert';
 
-UserModel userModelFromJson(String str) => UserModel.fromJson(json.decode(str));
+LoginModel loginModelFromJson(String str) =>
+    LoginModel.fromJson(json.decode(str));
 
-String userModelToJson(UserModel data) => json.encode(data.toJson());
+String loginModelToJson(LoginModel data) => json.encode(data.toJson());
 
-class UserModel {
+class LoginModel {
   int? statusCode;
   User? user;
   String? message;
 
-  UserModel({
+  LoginModel({
     this.statusCode,
     this.user,
     this.message,
   });
 
-  UserModel.empty() {
+  LoginModel.empty() {
     statusCode = 0;
     user = User.empty();
     message = 'EMPTY';
   }
 
-  factory UserModel.fromJson(Map<String, dynamic> json) => UserModel(
+  factory LoginModel.fromJson(Map<String, dynamic> json) => LoginModel(
         statusCode: json["status_code"],
         user: User.fromJson(json["user"]),
         message: json["message"],
