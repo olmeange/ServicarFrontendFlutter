@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:servicarmt/src/list_flags_controller.dart';
-import 'package:servicarmt/src/pages/home_views/options_views/new_client.dart';
-import 'package:servicarmt/src/services/client_service.dart';
-import 'package:servicarmt/src/pages/home_views/options_views/client_details.dart';
+import 'package:servicarmt/src/pages/home_views/options_views/new_vehicle.dart';
+import 'package:servicarmt/src/services/vehicle_service.dart';
+import 'package:servicarmt/src/pages/home_views/options_views/vehicle_details.dart';
 
-class Clients extends StatefulWidget {
-  const Clients({super.key, required this.enableClientDetails});
-  final bool enableClientDetails;
+class Vehicles extends StatefulWidget {
+  const Vehicles({super.key, required this.enableVehicleDetails});
+  final bool enableVehicleDetails;
 
   @override
-  State<Clients> createState() => _ClientsState();
+  State<Vehicles> createState() => _VehiclesState();
 }
 
-class _ClientsState extends State<Clients> {
-  final ClientService clientService = ClientService();
+class _VehiclesState extends State<Vehicles> {
+  final VehicleService vehicleService = VehicleService();
 
   // Clase que contiene las banderas para controlar adecuadamente la carga del listview
   final ListFlagsController listFlagsController = ListFlagsController();
@@ -31,8 +31,8 @@ class _ClientsState extends State<Clients> {
     });
 
     final data =
-        await clientService.getClientsPerPage(listFlagsController.page);
-    if (clientService.statusCode == 1000) {
+        await vehicleService.getVehiclesPerPage(listFlagsController.page);
+    if (vehicleService.statusCode == 1000) {
       setState(() {
         _posts = data;
       });
@@ -47,7 +47,7 @@ class _ClientsState extends State<Clients> {
   // to near the bottom of the list view
   void _loadMore() async {
     // si el resultado del status code de first load es correcto se podria pedir otros 10 elementos
-    if (clientService.statusCode == 1000 &&
+    if (vehicleService.statusCode == 1000 &&
         _controller.position.pixels == _controller.position.maxScrollExtent &&
         listFlagsController.hasNextPage) {
       setState(() {
@@ -57,7 +57,7 @@ class _ClientsState extends State<Clients> {
       listFlagsController.page += 1; // Increase _page by 1
 
       final data =
-          await clientService.getClientsPerPage(listFlagsController.page);
+          await vehicleService.getVehiclesPerPage(listFlagsController.page);
       if (!data.contains('EMPTY')) {
         setState(() {
           _posts.addAll(data);
@@ -91,23 +91,20 @@ class _ClientsState extends State<Clients> {
 
   @override
   Widget build(BuildContext context) {
-    //final arguments = (ModalRoute.of(context)?.settings.arguments ??
-    //    <String, dynamic>{}) as Map;
-    //bool client_details_enabled = true;
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Clientes'),
+        title: const Text('Vehículos'),
         actions: [
           IconButton(
-              icon: !widget.enableClientDetails
+              icon: !widget.enableVehicleDetails
                   ? const SizedBox(height: 0.0, width: 0.0)
                   : const Icon(Icons.note_add_outlined),
               onPressed: () => {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const NewClient(
-                                  fromClients: true,
+                            builder: (context) => const NewVehicle(
+                                  fromVehicles: true,
                                 )))
                   })
         ],
@@ -127,21 +124,18 @@ class _ClientsState extends State<Clients> {
                           vertical: 8, horizontal: 10),
                       child: ListTile(
                         onTap: () {
-                          // se asegura la navegacion a client_details solo desde esta vista
-                          if (widget.enableClientDetails) {
+                          if (widget.enableVehicleDetails) {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) =>
-                                        ClientDetails(item: _posts[index])));
+                                        VehicleDetails(item: _posts[index])));
                           } else {
-                            //Asi se pasan argumentos al anterior view
                             Navigator.pop(context, _posts[index]);
-                            //print(arguments['client_details_disabled']);
                           }
                         },
-                        title: Text(_posts[index]['first_name']),
-                        subtitle: Text(_posts[index]['email']),
+                        title: Text(_posts[index]['mark']),
+                        subtitle: Text(_posts[index]['model']),
                       ),
                     ),
                   ),
@@ -163,7 +157,7 @@ class _ClientsState extends State<Clients> {
                     color: Colors.blue,
                     child: const Center(
                       child: Text(
-                        'Lista de clientes completa',
+                        'Lista de vehículos completa',
                         style: TextStyle(
                           color: Colors.white,
                         ),

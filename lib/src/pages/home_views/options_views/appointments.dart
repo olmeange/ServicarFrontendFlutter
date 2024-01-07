@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:servicarmt/src/list_flags_controller.dart';
+import 'package:servicarmt/src/pages/home_views/options_views/appointment_details.dart';
 import 'package:servicarmt/src/pages/home_views/options_views/new_client.dart';
-import 'package:servicarmt/src/services/client_service.dart';
-import 'package:servicarmt/src/pages/home_views/options_views/client_details.dart';
+import 'package:servicarmt/src/services/appointment_service.dart';
 
-class Clients extends StatefulWidget {
-  const Clients({super.key, required this.enableClientDetails});
-  final bool enableClientDetails;
+class Appointments extends StatefulWidget {
+  const Appointments({super.key, required this.enableAppointmentDetails});
+  final bool enableAppointmentDetails;
 
   @override
-  State<Clients> createState() => _ClientsState();
+  State<Appointments> createState() => _AppointmentsState();
 }
 
-class _ClientsState extends State<Clients> {
-  final ClientService clientService = ClientService();
+class _AppointmentsState extends State<Appointments> {
+  final AppointmentService appointmentService = AppointmentService();
 
   // Clase que contiene las banderas para controlar adecuadamente la carga del listview
   final ListFlagsController listFlagsController = ListFlagsController();
@@ -30,9 +30,9 @@ class _ClientsState extends State<Clients> {
       listFlagsController.isFirstLoadRunning = true;
     });
 
-    final data =
-        await clientService.getClientsPerPage(listFlagsController.page);
-    if (clientService.statusCode == 1000) {
+    final data = await appointmentService
+        .getAppointmentsPerPage(listFlagsController.page);
+    if (appointmentService.statusCode == 1000) {
       setState(() {
         _posts = data;
       });
@@ -47,7 +47,7 @@ class _ClientsState extends State<Clients> {
   // to near the bottom of the list view
   void _loadMore() async {
     // si el resultado del status code de first load es correcto se podria pedir otros 10 elementos
-    if (clientService.statusCode == 1000 &&
+    if (appointmentService.statusCode == 1000 &&
         _controller.position.pixels == _controller.position.maxScrollExtent &&
         listFlagsController.hasNextPage) {
       setState(() {
@@ -56,8 +56,8 @@ class _ClientsState extends State<Clients> {
       });
       listFlagsController.page += 1; // Increase _page by 1
 
-      final data =
-          await clientService.getClientsPerPage(listFlagsController.page);
+      final data = await appointmentService
+          .getAppointmentsPerPage(listFlagsController.page);
       if (!data.contains('EMPTY')) {
         setState(() {
           _posts.addAll(data);
@@ -91,27 +91,21 @@ class _ClientsState extends State<Clients> {
 
   @override
   Widget build(BuildContext context) {
-    //final arguments = (ModalRoute.of(context)?.settings.arguments ??
-    //    <String, dynamic>{}) as Map;
-    //bool client_details_enabled = true;
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Clientes'),
-        actions: [
-          IconButton(
-              icon: !widget.enableClientDetails
-                  ? const SizedBox(height: 0.0, width: 0.0)
-                  : const Icon(Icons.note_add_outlined),
-              onPressed: () => {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const NewClient(
-                                  fromClients: true,
-                                )))
-                  })
-        ],
-      ),
+      appBar: AppBar(title: const Text('Citas'), actions: [
+        IconButton(
+            icon: !widget.enableAppointmentDetails
+                ? const SizedBox(height: 0.0, width: 0.0)
+                : const Icon(Icons.note_add_outlined),
+            onPressed: () => {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const NewClient(
+                                fromClients: false,
+                              )))
+                })
+      ]),
       body: listFlagsController.isFirstLoadRunning
           ? const Center(
               child: CircularProgressIndicator(),
@@ -127,21 +121,21 @@ class _ClientsState extends State<Clients> {
                           vertical: 8, horizontal: 10),
                       child: ListTile(
                         onTap: () {
-                          // se asegura la navegacion a client_details solo desde esta vista
-                          if (widget.enableClientDetails) {
+                          //print(index);
+                          //Navigator.pushNamed(context, 'appointment_details');
+                          if (widget.enableAppointmentDetails) {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) =>
-                                        ClientDetails(item: _posts[index])));
+                                    builder: (context) => AppointmentDetails(
+                                        item: _posts[index])));
                           } else {
-                            //Asi se pasan argumentos al anterior view
                             Navigator.pop(context, _posts[index]);
-                            //print(arguments['client_details_disabled']);
                           }
                         },
-                        title: Text(_posts[index]['first_name']),
-                        subtitle: Text(_posts[index]['email']),
+                        title: Text(_posts[index]['date']),
+                        subtitle: Text(_posts[index]['id']),
+                        //subtitle: Text(_posts[index]['visible'].toString()),
                       ),
                     ),
                   ),
@@ -163,7 +157,7 @@ class _ClientsState extends State<Clients> {
                     color: Colors.blue,
                     child: const Center(
                       child: Text(
-                        'Lista de clientes completa',
+                        'Lista de citas completa',
                         style: TextStyle(
                           color: Colors.white,
                         ),

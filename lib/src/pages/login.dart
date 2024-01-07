@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-
-//import 'package:path/path.dart' as path;
 import 'package:provider/provider.dart';
 import 'package:servicarmt/src/models/user_model.dart';
 import 'package:servicarmt/src/providers/login_provider.dart';
@@ -22,14 +20,12 @@ class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     final loginProviderSend = Provider.of<LoginProvider>(context);
-    //double heightDevice = MediaQuery.of(context).size.height / 3.5;
-    //double widthDevice = MediaQuery.of(context).size.height / 3.5;
-
     return Scaffold(
         body: Center(
             child: SingleChildScrollView(
       child: Padding(
-        padding: const EdgeInsets.only(left: 50.0, right: 50.0),
+        padding: const EdgeInsets.only(
+            left: 25.0, right: 25.0, top: 60.0, bottom: 60.0),
         child: Form(
             key: _formState,
             child: Column(

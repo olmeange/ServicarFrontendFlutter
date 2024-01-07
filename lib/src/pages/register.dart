@@ -25,17 +25,22 @@ class _RegisterState extends State<Register> {
             child: SingleChildScrollView(
       child: Padding(
         padding: const EdgeInsets.only(
-            left: 50.0, right: 50.0, top: 60.0, bottom: 60.0),
+            left: 25.0, right: 25.0, top: 60.0, bottom: 60.0),
         child: Form(
             key: _formState,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Text('Registrarse a Servicar MT',
+                const Text('Registrarse a ',
                     style: TextStyle(
                         color: Colors.blue,
-                        fontSize: 33,
+                        fontSize: 30,
+                        fontWeight: FontWeight.w700)),
+                const Text('Servicar MT ',
+                    style: TextStyle(
+                        color: Colors.blue,
+                        fontSize: 30,
                         fontWeight: FontWeight.w700)),
                 const SizedBox(height: 20),
                 Image.asset('assets/register_user.png',

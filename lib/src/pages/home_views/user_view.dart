@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-//import 'package:servicarmt/src/models/maintenance_model.dart';
 import 'package:servicarmt/src/models/user_model.dart';
 import 'package:servicarmt/src/providers/login_provider.dart';
-//import 'package:servicarmt/src/services/maintenance_service.dart';
 import 'package:servicarmt/src/services/user_service.dart';
 
 class UserView extends StatefulWidget {

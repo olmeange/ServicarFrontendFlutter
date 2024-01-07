@@ -1,16 +1,14 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:servicarmt/src/models/clients_model.dart';
+//import 'package:servicarmt/src/models/vehcicles_model.dart';
 
-class ClientsService {
+class VehicleService {
   late int statusCode;
   late String message;
 
-  ClientsModel clientsModel = ClientsModel();
-
-  Future<List<dynamic>> getClientsPerPage(int page) async {
+  Future<List<dynamic>> getVehiclesPerPage(int page) async {
     const String url = 'http://192.168.100.14:5000/api';
-    final String endpoint = '$url/clients/$page';
+    final String endpoint = '$url/vehicles/$page';
     List posts = [];
     final response = await http.get(Uri.parse(endpoint),
         headers: {"Content-Type": "application/json"});
@@ -23,8 +21,7 @@ class ClientsService {
       return posts;
     }
 
-    //posts = jsonDecode(response.body)['clients'];
-    posts.addAll(jsonDecode(response.body)['clients']);
+    posts.addAll(jsonDecode(response.body)['vehicles']);
     return posts;
   }
 }

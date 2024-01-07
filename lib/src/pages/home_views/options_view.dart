@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:servicarmt/src/pages/home_views/options_views/appointments.dart';
+import 'package:servicarmt/src/pages/home_views/options_views/clients.dart';
+import 'package:servicarmt/src/pages/home_views/options_views/vehicles.dart';
 
 class OptionsView extends StatefulWidget {
   const OptionsView({super.key});
@@ -18,7 +21,7 @@ class _OptionsViewState extends State<OptionsView> {
         ]),
         TableRow(children: [
           _createRoundedButton(Icons.add_comment_outlined, 'Citas', 2),
-          _createRoundedButton(Icons.fact_check_outlined, 'Agendar', 3)
+          _createRoundedButton(Icons.fact_check_outlined, 'Agendamientos', 3)
         ]),
         TableRow(children: [
           _createRoundedButton(
@@ -36,10 +39,10 @@ class _OptionsViewState extends State<OptionsView> {
   Widget _createRoundedButton(IconData icon, String function, int option) {
     return Container(
       height: 120.0,
-      margin: const EdgeInsets.all(20.0),
+      margin: const EdgeInsets.all(5.0),
       decoration: BoxDecoration(
           color: Colors.blue.shade50,
-          borderRadius: BorderRadius.circular(20.0)),
+          borderRadius: BorderRadius.circular(10.0)),
       child: InkWell(
         onTap: () => _optionSelected(option),
         child: Column(
@@ -67,26 +70,52 @@ class _OptionsViewState extends State<OptionsView> {
       case 0:
         {
           // statements;
-          Navigator.pushNamed(context, 'clients');
+          //Navigator.pushNamed(context, 'clients');
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) =>
+                      const Clients(enableClientDetails: true))
+              //'clients',
+              //arguments: {'client_details_disabled': true},
+              );
         }
         break;
 
       case 1:
         {
           // statements;
+          //Navigator.pushNamed(context, 'vehicles');
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) =>
+                      const Vehicles(enableVehicleDetails: true))
+              //'clients',
+              //arguments: {'client_details_disabled': true},
+              );
         }
         break;
 
       case 2:
         {
           //print('Opcion citas');
-          Navigator.pushNamed(context, 'appointment');
+          //Navigator.pushNamed(context, 'appointments');
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) =>
+                      const Appointments(enableAppointmentDetails: true))
+              //'clients',
+              //arguments: {'client_details_disabled': true},
+              );
         }
         break;
 
       case 3:
         {
           //statements;
+          Navigator.pushNamed(context, 'schedules');
         }
         break;
 

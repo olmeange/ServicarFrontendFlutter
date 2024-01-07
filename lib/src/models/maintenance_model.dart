@@ -1,7 +1,3 @@
-// To parse this JSON data, do
-//
-//     final maintenanceModel = maintenanceModelFromJson(jsonString);
-
 import 'dart:convert';
 
 List<MaintenanceModel> maintenanceModelFromJson(String str) =>
