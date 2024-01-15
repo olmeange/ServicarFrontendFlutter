@@ -61,6 +61,7 @@ class _NewClientState extends State<NewClient> {
                     MaterialPageRoute(
                         builder: (context) => const Success(
                               fromAppointments: false,
+                              numberOfJumps: 2,
                             )));
               } else {
                 Navigator.push(

@@ -67,8 +67,10 @@ class _NewLocationMainteinanceState extends State<NewLocationMainteinance> {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) =>
-                            const Success(fromAppointments: true)));
+                        builder: (context) => const Success(
+                              fromAppointments: true,
+                              numberOfJumps: 4,
+                            )));
               },
             ),
           )

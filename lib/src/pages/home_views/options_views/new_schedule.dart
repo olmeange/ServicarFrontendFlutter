@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:servicarmt/src/pages/home_views/options_views/appointments.dart';
-import 'package:servicarmt/src/pages/home_views/options_views/success.dart';
+import 'package:servicarmt/src/pages/home_views/options_views/schedule_image_video.dart';
+//import 'package:servicarmt/src/pages/home_views/options_views/success.dart';
 
 class NewSchedule extends StatefulWidget {
   const NewSchedule({super.key});
@@ -53,8 +54,8 @@ class _NewScheduleState extends State<NewSchedule> {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => const Success(
-                            fromAppointments: false,
+                      builder: (context) => const ScheduleImageVideo(
+                          //fromAppointments: false,
                           )));
             }),
       ),

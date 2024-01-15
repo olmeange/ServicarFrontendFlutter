@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 
 class Success extends StatefulWidget {
-  const Success({super.key, required this.fromAppointments});
+  const Success(
+      {super.key, required this.fromAppointments, required this.numberOfJumps});
   final bool fromAppointments;
+  final int numberOfJumps;
 
   @override
   State<Success> createState() => _SuccessState();
@@ -19,7 +21,50 @@ class _SuccessState extends State<Success> {
             //do your navigate here
             //print("back click");
             //salir de cuatro vistas para volver a lista de citas
-            if (widget.fromAppointments) {
+
+            switch (widget.numberOfJumps) {
+              case 1:
+                {
+                  // statements;
+                  Navigator.pop(context);
+                }
+                break;
+
+              case 2:
+                {
+                  //statements;
+                  Navigator.pop(context);
+                  Navigator.pop(context);
+                }
+                break;
+
+              case 3:
+                {
+                  //statements;
+                  Navigator.pop(context);
+                  Navigator.pop(context);
+                  Navigator.pop(context);
+                }
+                break;
+
+              case 4:
+                {
+                  //statements;
+                  Navigator.pop(context);
+                  Navigator.pop(context);
+                  Navigator.pop(context);
+                  Navigator.pop(context);
+                }
+                break;
+
+              default:
+                {
+                  //statements;
+                }
+                break;
+            }
+
+            /*if (widget.fromAppointments) {
               Navigator.pop(context);
               Navigator.pop(context);
               Navigator.pop(context);
@@ -27,7 +72,7 @@ class _SuccessState extends State<Success> {
             } else {
               Navigator.pop(context);
               Navigator.pop(context);
-            }
+            }*/
           },
         ),
       ),

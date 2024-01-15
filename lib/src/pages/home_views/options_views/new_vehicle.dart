@@ -79,8 +79,10 @@ class _NewVehicleState extends State<NewVehicle> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) =>
-                                const Success(fromAppointments: false)));
+                            builder: (context) => const Success(
+                                  fromAppointments: false,
+                                  numberOfJumps: 2,
+                                )));
                   } else {
                     Navigator.push(
                         context,
