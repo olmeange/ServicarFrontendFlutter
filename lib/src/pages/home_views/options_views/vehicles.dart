@@ -93,9 +93,15 @@ class _VehiclesState extends State<Vehicles> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Vehículos'),
+        backgroundColor: Colors.blue,
+        title: const Text(
+          'Vehículos',
+          style: TextStyle(color: Colors.white),
+        ),
+        leading: const BackButton(color: Colors.white),
         actions: [
           IconButton(
+              color: Colors.white,
               icon: !widget.enableVehicleDetails
                   ? const SizedBox(height: 0.0, width: 0.0)
                   : const Icon(Icons.note_add_outlined),
@@ -111,7 +117,9 @@ class _VehiclesState extends State<Vehicles> {
       ),
       body: listFlagsController.isFirstLoadRunning
           ? const Center(
-              child: CircularProgressIndicator(),
+              child: CircularProgressIndicator(
+                color: Colors.blue,
+              ),
             )
           : Column(
               children: [

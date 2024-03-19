@@ -21,8 +21,13 @@ class _NewScheduleState extends State<NewSchedule> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Agregar Agendamiento'),
+        backgroundColor: Colors.blue,
+        title: const Text(
+          'Agregar Agendamiento',
+          style: TextStyle(color: Colors.white),
+        ),
         leading: BackButton(
+          color: Colors.white,
           onPressed: () {
             // do your navigate here
             //print("back click");
@@ -39,10 +44,17 @@ class _NewScheduleState extends State<NewSchedule> {
       floatingActionButton: Padding(
         padding: const EdgeInsets.only(right: 8.0),
         child: FloatingActionButton.extended(
+            backgroundColor: Colors.blue,
             //forward button
             heroTag: "btn2",
-            label: const Text('Siguiente'),
-            icon: const Icon(Icons.arrow_forward_rounded),
+            label: const Text(
+              'Siguiente',
+              style: TextStyle(color: Colors.white),
+            ),
+            icon: const Icon(
+              Icons.arrow_forward_rounded,
+              color: Colors.white,
+            ),
             onPressed: () {
               setState(() {
                 //print(idAppointmentController.text);
@@ -101,7 +113,12 @@ class _NewScheduleState extends State<NewSchedule> {
         child: TextFormField(
       keyboardType: TextInputType.text,
       controller: idAppointmentController,
+      cursorColor: Colors.blue,
       decoration: InputDecoration(
+          floatingLabelStyle: const TextStyle(color: Colors.blue),
+          focusedBorder: const OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.blue, width: 2.0),
+          ),
           fillColor: Colors.grey.shade100,
           filled: true,
           labelText: 'Id de la cita',
@@ -139,7 +156,12 @@ class _NewScheduleState extends State<NewSchedule> {
         child: TextFormField(
       keyboardType: TextInputType.text,
       controller: chassisController,
+      cursorColor: Colors.blue,
       decoration: InputDecoration(
+          floatingLabelStyle: const TextStyle(color: Colors.blue),
+          focusedBorder: const OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.blue, width: 2.0),
+          ),
           fillColor: Colors.grey.shade100,
           filled: true,
           labelText: 'Chassis',
@@ -159,7 +181,12 @@ class _NewScheduleState extends State<NewSchedule> {
         child: TextFormField(
       keyboardType: TextInputType.text,
       controller: kmController,
+      cursorColor: Colors.blue,
       decoration: InputDecoration(
+          floatingLabelStyle: const TextStyle(color: Colors.blue),
+          focusedBorder: const OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.blue, width: 2.0),
+          ),
           fillColor: Colors.grey.shade100,
           filled: true,
           labelText: 'Km',
@@ -179,7 +206,12 @@ class _NewScheduleState extends State<NewSchedule> {
         child: TextFormField(
       keyboardType: TextInputType.text,
       controller: userController,
+      cursorColor: Colors.blue,
       decoration: InputDecoration(
+          floatingLabelStyle: const TextStyle(color: Colors.blue),
+          focusedBorder: const OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.blue, width: 2.0),
+          ),
           fillColor: Colors.grey.shade100,
           filled: true,
           labelText: 'Id del mecánico',

@@ -96,9 +96,15 @@ class _ClientsState extends State<Clients> {
     //bool client_details_enabled = true;
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Clientes'),
+        backgroundColor: Colors.blue,
+        title: const Text(
+          'Clientes',
+          style: TextStyle(color: Colors.white),
+        ),
+        leading: const BackButton(color: Colors.white),
         actions: [
           IconButton(
+              color: Colors.white,
               icon: !widget.enableClientDetails
                   ? const SizedBox(height: 0.0, width: 0.0)
                   : const Icon(Icons.note_add_outlined),
@@ -114,7 +120,9 @@ class _ClientsState extends State<Clients> {
       ),
       body: listFlagsController.isFirstLoadRunning
           ? const Center(
-              child: CircularProgressIndicator(),
+              child: CircularProgressIndicator(
+                color: Colors.blue,
+              ),
             )
           : Column(
               children: [

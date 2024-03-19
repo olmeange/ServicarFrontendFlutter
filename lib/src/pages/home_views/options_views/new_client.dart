@@ -25,8 +25,13 @@ class _NewClientState extends State<NewClient> {
 
     return Scaffold(
         appBar: AppBar(
-          title: const Text('Agregar Cliente'),
+          backgroundColor: Colors.blue,
+          title: const Text(
+            'Agregar Cliente',
+            style: TextStyle(color: Colors.white),
+          ),
           leading: BackButton(
+            color: Colors.white,
             onPressed: () {
               // do your navigate here
               //print("back click");
@@ -43,10 +48,17 @@ class _NewClientState extends State<NewClient> {
         floatingActionButton: Padding(
           padding: const EdgeInsets.only(right: 8.0),
           child: FloatingActionButton.extended(
+            backgroundColor: Colors.blue,
             //forward button
             heroTag: "btn2",
-            label: const Text('Siguiente'),
-            icon: const Icon(Icons.arrow_forward_rounded),
+            label: const Text(
+              'Siguiente',
+              style: TextStyle(color: Colors.white),
+            ),
+            icon: const Icon(
+              Icons.arrow_forward_rounded,
+              color: Colors.white,
+            ),
             onPressed: () {
               setState(() {
                 //print(nameController.text);
@@ -116,7 +128,12 @@ class _NewClientState extends State<NewClient> {
         child: TextFormField(
       keyboardType: TextInputType.text,
       controller: nameController,
+      cursorColor: Colors.blue,
       decoration: InputDecoration(
+          floatingLabelStyle: const TextStyle(color: Colors.blue),
+          focusedBorder: const OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.blue, width: 2.0),
+          ),
           fillColor: Colors.grey.shade100,
           filled: true,
           labelText: 'Nombre',
@@ -168,7 +185,12 @@ class _NewClientState extends State<NewClient> {
         child: TextFormField(
       keyboardType: TextInputType.text,
       controller: lastNameController,
+      cursorColor: Colors.blue,
       decoration: InputDecoration(
+          floatingLabelStyle: const TextStyle(color: Colors.blue),
+          focusedBorder: const OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.blue, width: 2.0),
+          ),
           fillColor: Colors.grey.shade100,
           filled: true,
           labelText: 'Apellido',
@@ -188,7 +210,12 @@ class _NewClientState extends State<NewClient> {
         child: TextFormField(
       keyboardType: TextInputType.text,
       controller: addressController,
+      cursorColor: Colors.blue,
       decoration: InputDecoration(
+          floatingLabelStyle: const TextStyle(color: Colors.blue),
+          focusedBorder: const OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.blue, width: 2.0),
+          ),
           fillColor: Colors.grey.shade100,
           filled: true,
           labelText: 'Dirección',
@@ -208,7 +235,12 @@ class _NewClientState extends State<NewClient> {
         child: TextFormField(
       keyboardType: TextInputType.text,
       controller: emailController,
+      cursorColor: Colors.blue,
       decoration: InputDecoration(
+          floatingLabelStyle: const TextStyle(color: Colors.blue),
+          focusedBorder: const OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.blue, width: 2.0),
+          ),
           fillColor: Colors.grey.shade100,
           filled: true,
           labelText: 'Correo',
@@ -228,7 +260,12 @@ class _NewClientState extends State<NewClient> {
         child: TextFormField(
       keyboardType: TextInputType.phone,
       controller: phoneController,
+      cursorColor: Colors.blue,
       decoration: InputDecoration(
+          floatingLabelStyle: const TextStyle(color: Colors.blue),
+          focusedBorder: const OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.blue, width: 2.0),
+          ),
           fillColor: Colors.grey.shade100,
           filled: true,
           labelText: 'Teléfono',

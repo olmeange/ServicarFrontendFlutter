@@ -68,7 +68,12 @@ class _LoginState extends State<Login> {
     return TextFormField(
       keyboardType: TextInputType.text,
       controller: userController,
+      cursorColor: Colors.blue,
       decoration: InputDecoration(
+          floatingLabelStyle: const TextStyle(color: Colors.blue),
+          focusedBorder: const OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.blue, width: 2.0),
+          ),
           fillColor: Colors.grey.shade100,
           filled: true,
           labelText: 'Usuario',
@@ -88,10 +93,15 @@ class _LoginState extends State<Login> {
       obscureText: !showPass,
       keyboardType: TextInputType.text,
       controller: passwordController,
+      cursorColor: Colors.blue,
       decoration: InputDecoration(
+          floatingLabelStyle: const TextStyle(color: Colors.blue),
+          focusedBorder: const OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.blue, width: 2.0),
+          ),
           fillColor: Colors.grey.shade100,
           filled: true,
-          labelText: 'Constraseña',
+          labelText: 'Contraseña',
           prefixIcon: const Icon(Icons.lock_outlined),
           suffixIcon: IconButton(
             onPressed: togglePass,
@@ -118,6 +128,9 @@ class _LoginState extends State<Login> {
       style: ElevatedButton.styleFrom(
           // The width will be 100% of the parent widget
           // The height will be 60
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+          backgroundColor: Colors.blue,
           textStyle: const TextStyle(fontSize: 18),
           minimumSize: const Size.fromHeight(55)),
       onPressed: () {
@@ -161,7 +174,10 @@ class _LoginState extends State<Login> {
           }*/
         }
       },
-      child: const Text('Iniciar Sesion'),
+      child: const Text(
+        'Iniciar Sesion',
+        style: TextStyle(color: Colors.white),
+      ),
     );
   }
 
@@ -172,6 +188,7 @@ class _LoginState extends State<Login> {
         'Registrarse',
         style: TextStyle(
             decoration: TextDecoration.underline,
+            decorationColor: Colors.blue,
             fontSize: 16,
             color: Colors.blue),
       ),

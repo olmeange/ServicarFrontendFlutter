@@ -15,8 +15,10 @@ class _SuccessState extends State<Success> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.blue,
         //title: const Text('Cita agregada'),
         leading: BackButton(
+          color: Colors.white,
           onPressed: () {
             //do your navigate here
             //print("back click");
@@ -110,12 +112,18 @@ class _SuccessState extends State<Success> {
   Widget _successButton(BuildContext context) {
     return ElevatedButton(
         style: ElevatedButton.styleFrom(
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+            backgroundColor: Colors.blue,
             textStyle: const TextStyle(fontSize: 18),
             minimumSize: const Size.fromHeight(55)),
         onPressed: () {
           Navigator.of(context)
               .pushNamedAndRemoveUntil('home', (Route<dynamic> route) => false);
         },
-        child: const Text('Ir a principal'));
+        child: const Text(
+          'Ir a principal',
+          style: TextStyle(color: Colors.white),
+        ));
   }
 }

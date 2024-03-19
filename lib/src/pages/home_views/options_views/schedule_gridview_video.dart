@@ -43,7 +43,16 @@ class _ScheduleGridviewVideoState extends State<ScheduleGridviewVideo> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: const Text('Vídeo')),
+        appBar: AppBar(
+          backgroundColor: Colors.blue,
+          title: const Text(
+            'Vídeo',
+            style: TextStyle(color: Colors.white),
+          ),
+          leading: const BackButton(
+            color: Colors.white,
+          ),
+        ),
         body: Center(child: _showContent(widget.item)));
   }
 

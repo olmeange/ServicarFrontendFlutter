@@ -12,7 +12,16 @@ class _ScheduleGridviewImageState extends State<ScheduleGridviewImage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: const Text('Imagen')),
+        appBar: AppBar(
+          backgroundColor: Colors.blue,
+          title: const Text(
+            'Imagen',
+            style: TextStyle(color: Colors.white),
+          ),
+          leading: const BackButton(
+            color: Colors.white,
+          ),
+        ),
         body: Center(child: _showContent(widget.item)));
   }
 

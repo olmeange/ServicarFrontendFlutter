@@ -8,7 +8,12 @@ class AppointmentDetails extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text('Detalles de la cita'),
+          backgroundColor: Colors.blue,
+          title: const Text(
+            'Detalles de la cita',
+            style: TextStyle(color: Colors.white),
+          ),
+          leading: const BackButton(color: Colors.white),
         ),
         body: Center(
             child: SingleChildScrollView(

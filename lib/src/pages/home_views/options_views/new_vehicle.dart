@@ -22,8 +22,13 @@ class _NewVehicleState extends State<NewVehicle> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Agregar Vehículo'),
+        backgroundColor: Colors.blue,
+        title: const Text(
+          'Agregar Vehículo',
+          style: TextStyle(color: Colors.white),
+        ),
         leading: BackButton(
+          color: Colors.white,
           onPressed: () {
             // do your navigate here
             //print("back click");
@@ -53,9 +58,16 @@ class _NewVehicleState extends State<NewVehicle> {
                   padding: const EdgeInsets.only(left: 40.0),
                   child: FloatingActionButton.extended(
                     //back button
+                    backgroundColor: Colors.blue,
                     heroTag: "btn1",
-                    label: const Text('Atrás'),
-                    icon: const Icon(Icons.arrow_back_rounded),
+                    label: const Text(
+                      'Atrás',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                    icon: const Icon(
+                      Icons.arrow_back_rounded,
+                      color: Colors.white,
+                    ),
                     onPressed: () {
                       Navigator.pop(context);
                       //setState(() {});
@@ -64,10 +76,17 @@ class _NewVehicleState extends State<NewVehicle> {
           Padding(
             padding: const EdgeInsets.only(right: 8.0),
             child: FloatingActionButton.extended(
+                backgroundColor: Colors.blue,
                 //forward button
                 heroTag: "btn2",
-                label: const Text('Siguiente'),
-                icon: const Icon(Icons.arrow_forward_rounded),
+                label: const Text(
+                  'Siguiente',
+                  style: TextStyle(color: Colors.white),
+                ),
+                icon: const Icon(
+                  Icons.arrow_forward_rounded,
+                  color: Colors.white,
+                ),
                 onPressed: () {
                   setState(() {
                     //print(markController.text);
@@ -136,7 +155,12 @@ class _NewVehicleState extends State<NewVehicle> {
         child: TextFormField(
       keyboardType: TextInputType.text,
       controller: markController,
+      cursorColor: Colors.blue,
       decoration: InputDecoration(
+          floatingLabelStyle: const TextStyle(color: Colors.blue),
+          focusedBorder: const OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.blue, width: 2.0),
+          ),
           fillColor: Colors.grey.shade100,
           filled: true,
           labelText: 'Marca',
@@ -184,7 +208,12 @@ class _NewVehicleState extends State<NewVehicle> {
         child: TextFormField(
       keyboardType: TextInputType.text,
       controller: modelController,
+      cursorColor: Colors.blue,
       decoration: InputDecoration(
+          floatingLabelStyle: const TextStyle(color: Colors.blue),
+          focusedBorder: const OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.blue, width: 2.0),
+          ),
           fillColor: Colors.grey.shade100,
           filled: true,
           labelText: 'Modelo',
@@ -204,7 +233,12 @@ class _NewVehicleState extends State<NewVehicle> {
         child: TextFormField(
       keyboardType: TextInputType.text,
       controller: yearController,
+      cursorColor: Colors.blue,
       decoration: InputDecoration(
+          floatingLabelStyle: const TextStyle(color: Colors.blue),
+          focusedBorder: const OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.blue, width: 2.0),
+          ),
           fillColor: Colors.grey.shade100,
           filled: true,
           labelText: 'Año',
@@ -224,7 +258,12 @@ class _NewVehicleState extends State<NewVehicle> {
         child: TextFormField(
       keyboardType: TextInputType.text,
       controller: plateController,
+      cursorColor: Colors.blue,
       decoration: InputDecoration(
+          floatingLabelStyle: const TextStyle(color: Colors.blue),
+          focusedBorder: const OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.blue, width: 2.0),
+          ),
           fillColor: Colors.grey.shade100,
           filled: true,
           labelText: 'Chapa',

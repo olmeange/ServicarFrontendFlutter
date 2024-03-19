@@ -92,23 +92,33 @@ class _AppointmentsState extends State<Appointments> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Citas'), actions: [
-        IconButton(
-            icon: !widget.enableAppointmentDetails
-                ? const SizedBox(height: 0.0, width: 0.0)
-                : const Icon(Icons.note_add_outlined),
-            onPressed: () => {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const NewClient(
-                                fromClients: false,
-                              )))
-                })
-      ]),
+      appBar: AppBar(
+          backgroundColor: Colors.blue,
+          title: const Text(
+            'Citas',
+            style: TextStyle(color: Colors.white),
+          ),
+          leading: const BackButton(color: Colors.white),
+          actions: [
+            IconButton(
+                color: Colors.white,
+                icon: !widget.enableAppointmentDetails
+                    ? const SizedBox(height: 0.0, width: 0.0)
+                    : const Icon(Icons.note_add_outlined),
+                onPressed: () => {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const NewClient(
+                                    fromClients: false,
+                                  )))
+                    })
+          ]),
       body: listFlagsController.isFirstLoadRunning
           ? const Center(
-              child: CircularProgressIndicator(),
+              child: CircularProgressIndicator(
+                color: Colors.blue,
+              ),
             )
           : Column(
               children: [

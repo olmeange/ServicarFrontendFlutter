@@ -92,9 +92,15 @@ class _SchedulesState extends State<Schedules> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Agendamientos'),
+        backgroundColor: Colors.blue,
+        title: const Text(
+          'Agendamientos',
+          style: TextStyle(color: Colors.white),
+        ),
+        leading: const BackButton(color: Colors.white),
         actions: [
           IconButton(
+              color: Colors.white,
               icon: const Icon(Icons.note_add_outlined),
               onPressed: () => {
                     Navigator.push(

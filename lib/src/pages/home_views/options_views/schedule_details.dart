@@ -14,7 +14,12 @@ class ScheduleDetails extends StatelessWidget {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        title: const Text('Detalles del Agendamiento'),
+        backgroundColor: Colors.blue,
+        title: const Text(
+          'Detalles del Agendamiento',
+          style: TextStyle(color: Colors.white),
+        ),
+        leading: const BackButton(color: Colors.white),
       ),
       body: Center(
           child: SingleChildScrollView(

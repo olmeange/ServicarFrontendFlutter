@@ -8,7 +8,12 @@ class VehicleDetails extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text('Datos del vehículo'),
+          backgroundColor: Colors.blue,
+          title: const Text(
+            'Datos del vehículo',
+            style: TextStyle(color: Colors.white),
+          ),
+          leading: const BackButton(color: Colors.white),
         ),
         body: Center(
             child: SingleChildScrollView(

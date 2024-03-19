@@ -36,7 +36,11 @@ class _HomeState extends State<Home> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Servicar MT - Opciones'),
+        backgroundColor: Colors.blue,
+        title: const Text(
+          'Servicar MT - Opciones',
+          style: TextStyle(color: Colors.white),
+        ),
         automaticallyImplyLeading: false,
         centerTitle: true,
       ),
@@ -52,6 +56,7 @@ class _HomeState extends State<Home> {
             ),
       )),
       bottomNavigationBar: BottomNavigationBar(
+          //backgroundColor: Colors.blue,
           type: BottomNavigationBarType.shifting,
           currentIndex: selectedIndex,
           onTap: (value) {
@@ -60,22 +65,22 @@ class _HomeState extends State<Home> {
             });
           },
           elevation: 0.0,
-          items: [
+          items: const [
             BottomNavigationBarItem(
-                icon: const Icon(Icons.home),
-                activeIcon: const Icon(Icons.home_outlined),
+                icon: Icon(Icons.home),
+                activeIcon: Icon(Icons.home_outlined),
                 label: 'Principal',
-                backgroundColor: Theme.of(context).colorScheme.primary),
+                backgroundColor: Colors.blue),
             BottomNavigationBarItem(
-                icon: const Icon(Icons.task),
-                activeIcon: const Icon(Icons.task_outlined),
+                icon: Icon(Icons.task),
+                activeIcon: Icon(Icons.task_outlined),
                 label: 'Servicios',
-                backgroundColor: Theme.of(context).colorScheme.tertiary),
+                backgroundColor: Colors.blue),
             BottomNavigationBarItem(
-                icon: const Icon(Icons.person_3_outlined),
-                activeIcon: const Icon(Icons.person_3),
+                icon: Icon(Icons.person_3_outlined),
+                activeIcon: Icon(Icons.person_3),
                 label: 'Perfil del Mecánico',
-                backgroundColor: Theme.of(context).colorScheme.tertiary)
+                backgroundColor: Colors.blue)
           ]),
     );
   }

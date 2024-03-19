@@ -77,7 +77,12 @@ class _RegisterState extends State<Register> {
     return TextFormField(
       keyboardType: TextInputType.text,
       controller: nameController,
+      cursorColor: Colors.blue,
       decoration: InputDecoration(
+          floatingLabelStyle: const TextStyle(color: Colors.blue),
+          focusedBorder: const OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.blue, width: 2.0),
+          ),
           fillColor: Colors.grey.shade100,
           filled: true,
           labelText: 'Nombre',
@@ -96,7 +101,12 @@ class _RegisterState extends State<Register> {
     return TextFormField(
       keyboardType: TextInputType.text,
       controller: lastNameController,
+      cursorColor: Colors.blue,
       decoration: InputDecoration(
+          floatingLabelStyle: const TextStyle(color: Colors.blue),
+          focusedBorder: const OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.blue, width: 2.0),
+          ),
           fillColor: Colors.grey.shade100,
           filled: true,
           labelText: 'Apellido',
@@ -115,6 +125,11 @@ class _RegisterState extends State<Register> {
     List sucursales = ['Ñemby', 'Km5', '4M', 'MRA', 'Cnel. Oviedo', 'CDE'];
     return DropdownButtonFormField(
         decoration: InputDecoration(
+            floatingLabelStyle: const TextStyle(color: Colors.blue),
+            focusedBorder: const OutlineInputBorder(
+              borderSide: BorderSide(color: Colors.blue, width: 2.0),
+            ),
+            fillColor: Colors.grey.shade100,
             prefixIcon: const Icon(Icons.other_houses_outlined),
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10),
@@ -141,7 +156,12 @@ class _RegisterState extends State<Register> {
       obscureText: !showPass,
       keyboardType: TextInputType.text,
       controller: passwordController,
+      cursorColor: Colors.blue,
       decoration: InputDecoration(
+          floatingLabelStyle: const TextStyle(color: Colors.blue),
+          focusedBorder: const OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.blue, width: 2.0),
+          ),
           fillColor: Colors.grey.shade100,
           filled: true,
           labelText: 'Contraseña',
@@ -171,6 +191,9 @@ class _RegisterState extends State<Register> {
       style: ElevatedButton.styleFrom(
           // The width will be 100% of the parent widget
           // The height will be 60
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+          backgroundColor: Colors.blue,
           textStyle: const TextStyle(fontSize: 18),
           minimumSize: const Size.fromHeight(55)),
       onPressed: () {
@@ -185,7 +208,10 @@ class _RegisterState extends State<Register> {
           Navigator.pushNamed(context, 'home');
         }
       },
-      child: const Text('Registrarme'),
+      child: const Text(
+        'Registrarme',
+        style: TextStyle(color: Colors.white),
+      ),
     );
   }
 }

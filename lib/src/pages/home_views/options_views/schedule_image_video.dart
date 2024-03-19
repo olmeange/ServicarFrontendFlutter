@@ -30,9 +30,15 @@ class _ScheduleImageVideoState extends State<ScheduleImageVideo> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        title: const Text('Agregar Agendamiento'),
+        backgroundColor: Colors.blue,
+        title: const Text(
+          'Agregar Agendamiento',
+          style: TextStyle(color: Colors.white),
+        ),
+        leading: const BackButton(color: Colors.white),
         actions: [
           IconButton(
+              color: Colors.white,
               icon: const Icon(Icons.note_add_outlined),
               onPressed: () => {
                     showModalBottomSheet(
@@ -79,9 +85,16 @@ class _ScheduleImageVideoState extends State<ScheduleImageVideo> {
         padding: const EdgeInsets.only(right: 8.0),
         child: FloatingActionButton.extended(
           //forward button
+          backgroundColor: Colors.blue,
           heroTag: "btn1",
-          label: const Text('Siguiente'),
-          icon: const Icon(Icons.arrow_forward_rounded),
+          label: const Text(
+            'Siguiente',
+            style: TextStyle(color: Colors.white),
+          ),
+          icon: const Icon(
+            Icons.arrow_forward_rounded,
+            color: Colors.white,
+          ),
           onPressed: () {
             Navigator.push(
                 context,

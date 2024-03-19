@@ -18,8 +18,13 @@ class _NewLocationMainteinanceState extends State<NewLocationMainteinance> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Agregar Servicio y Sucursal'),
+        backgroundColor: Colors.blue,
+        title: const Text(
+          'Agregar Servicio y Sucursal',
+          style: TextStyle(color: Colors.white),
+        ),
         leading: BackButton(
+          color: Colors.white,
           onPressed: () {
             // do your navigate here
             //print("back click");
@@ -44,9 +49,16 @@ class _NewLocationMainteinanceState extends State<NewLocationMainteinance> {
               padding: const EdgeInsets.only(left: 40.0),
               child: FloatingActionButton.extended(
                 //back button
+                backgroundColor: Colors.blue,
                 heroTag: "btn1",
-                label: const Text('Atrás'),
-                icon: const Icon(Icons.arrow_back_rounded),
+                label: const Text(
+                  'Atrás',
+                  style: TextStyle(color: Colors.white),
+                ),
+                icon: const Icon(
+                  Icons.arrow_back_rounded,
+                  color: Colors.white,
+                ),
                 onPressed: () {
                   //setState(() {});
                   Navigator.pop(context);
@@ -56,9 +68,16 @@ class _NewLocationMainteinanceState extends State<NewLocationMainteinance> {
             padding: const EdgeInsets.only(right: 8.0),
             child: FloatingActionButton.extended(
               //forward button
+              backgroundColor: Colors.blue,
               heroTag: "btn2",
-              label: const Text('Siguiente'),
-              icon: const Icon(Icons.arrow_forward_rounded),
+              label: const Text(
+                'Siguiente',
+                style: TextStyle(color: Colors.white),
+              ),
+              icon: const Icon(
+                Icons.arrow_forward_rounded,
+                color: Colors.white,
+              ),
               onPressed: () {
                 setState(() {
                   //print(location);
@@ -110,6 +129,10 @@ class _NewLocationMainteinanceState extends State<NewLocationMainteinance> {
     return Material(
       child: DropdownButtonFormField(
           decoration: InputDecoration(
+              floatingLabelStyle: const TextStyle(color: Colors.blue),
+              focusedBorder: const OutlineInputBorder(
+                borderSide: BorderSide(color: Colors.blue, width: 2.0),
+              ),
               prefixIcon: const Icon(Icons.other_houses_outlined),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10),
@@ -149,6 +172,10 @@ class _NewLocationMainteinanceState extends State<NewLocationMainteinance> {
     return Material(
         child: DropdownButtonFormField(
             decoration: InputDecoration(
+                floatingLabelStyle: const TextStyle(color: Colors.blue),
+                focusedBorder: const OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.blue, width: 2.0),
+                ),
                 prefixIcon: const Icon(Icons.car_repair),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
